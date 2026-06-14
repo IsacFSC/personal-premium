@@ -54,41 +54,68 @@ const cormorant = Cormorant_Garamond({
 
 export const metadata: Metadata = {
   metadataBase: new URL(
-    process.env.NEXT_PUBLIC_SITE_URL ?? "https://premiumpersonal.vercel.app/",
+    process.env.NEXT_PUBLIC_SITE_URL ??
+      "https://personal-premium-studio.vercel.app"
   ),
+
   title: {
-    default: "Premium — Personal | Seu próximo nível começa aqui.",
-    template: "%s | Premium Personal ",
+    default: "Premium Personal | Seu próximo nível começa aqui",
+    template: "%s | Premium Personal",
   },
+
   description:
-    "Premium - Performance, estética e bem-estar. Experiência exclusiva de treino. Para quem busca alto nível",
+    "Premium Personal: performance, estética e bem-estar. Experiência exclusiva de treino para quem busca alto nível.",
+
   keywords: [
-    "Personal ",
-    "Premium",
-    "Bonito - MS",
-    "Performance",
-    "Estética",
-    "Bem-estar",
-    "Treino",
-    "Alto nível",
-    "Exclusivo",
+    "personal trainer",
+    "premium personal",
+    "Bonito MS",
+    "performance",
+    "estética",
+    "bem-estar",
+    "treino personalizado",
+    "alto nível",
   ],
+
+  alternates: {
+    canonical: "/",
+  },
+
+  icons: {
+    icon: "/assets/brand/premium.jpg",
+    shortcut: "/assets/brand/premium.jpg",
+    apple: "/assets/brand/premium.jpg",
+  },
+
   openGraph: {
-    type: "website",
+    title: "Premium Personal | Seu próximo nível começa aqui",
+    description:
+      "Performance, estética e bem-estar. Experiência exclusiva de treino para quem busca alto nível.",
+    url: "/",
+    siteName: "Premium Personal",
     locale: "pt_BR",
-    siteName: "Premium — Personal ",
+    type: "website",
     images: [
       {
-        url: "/brand/logo.jpg",
+        url: "/assets/brand/premium.jpg",
         width: 1200,
         height: 630,
-        alt: "Premium — Personal ",
+        alt: "Premium Personal",
       },
     ],
   },
+
   twitter: {
     card: "summary_large_image",
-    images: ["/brand/logo.jpg"],
+    title: "Premium Personal | Seu próximo nível começa aqui",
+    description:
+      "Performance, estética e bem-estar. Experiência exclusiva de treino para quem busca alto nível.",
+    images: ["/assets/brand/premium.jpg"],
+  },
+
+  robots: {
+    index: true,
+    follow: true,
   },
 };
 
