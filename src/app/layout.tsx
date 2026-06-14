@@ -55,7 +55,8 @@ const cormorant = Cormorant_Garamond({
 export const metadata: Metadata = {
   metadataBase: new URL(
     process.env.NEXT_PUBLIC_SITE_URL ??
-      "https://personal-premium-studio.vercel.app"
+      "https://personal-premium-studio.vercel.app",
+      "http://localhost:3000",
   ),
 
   title: {
@@ -69,7 +70,7 @@ export const metadata: Metadata = {
   keywords: [
     "personal trainer",
     "premium personal",
-    "Bonito MS",
+    "Campo Grande MS",
     "performance",
     "estética",
     "bem-estar",
@@ -82,9 +83,9 @@ export const metadata: Metadata = {
   },
 
   icons: {
-    icon: "/assets/brand/premium.jpg",
-    shortcut: "/assets/brand/premium.jpg",
-    apple: "/assets/brand/premium.jpg",
+    icon: "brand/premium.jpg",
+    shortcut: "brand/premium.jpg",
+    apple: "brand/premium.jpg",
   },
 
   openGraph: {
@@ -97,7 +98,7 @@ export const metadata: Metadata = {
     type: "website",
     images: [
       {
-        url: "/assets/brand/premium.jpg",
+        url: "brand/premium.jpg",
         width: 1200,
         height: 630,
         alt: "Premium Personal",
@@ -110,7 +111,7 @@ export const metadata: Metadata = {
     title: "Premium Personal | Seu próximo nível começa aqui",
     description:
       "Performance, estética e bem-estar. Experiência exclusiva de treino para quem busca alto nível.",
-    images: ["/assets/brand/premium.jpg"],
+    images: ["brand/premium.jpg"],
   },
 
   robots: {
