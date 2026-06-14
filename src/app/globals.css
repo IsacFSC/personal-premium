@@ -1,0 +1,404 @@
+@import url("https://fonts.googleapis.com/css2?family=National+Park:wght@400..700&display=swap");
+@import "tailwindcss";
+
+@theme {
+  /* Brand */
+  --color-brand-primary: #5c5454;
+  --color-brand-secondary: #716f6c;
+  --color-brand-accent: #645e5c;
+
+  /* Backgrounds */
+  --color-brand-bg: #f5f3ef;
+  --color-brand-surface: #ebe8e2;
+  --color-brand-light: #d3d2cc;
+
+  /* Text */
+  --color-brand-dark: #2e2c29;
+  --color-brand-text: #2e2c29;
+  --color-brand-muted: #716f6c;
+
+  /* Premium extras */
+  --color-brand-border: rgba(46, 44, 41, 0.08);
+  --color-brand-overlay: rgba(46, 44, 41, 0.55);
+  --ecg-line: #b7afa8;
+  --ecg-glow: rgba(183, 175, 168, 0.22);
+
+  /* ── Tipografia ── */
+  --font-sans: var(--font-inter), system-ui, sans-serif;
+  --font-display: var(--font-playfair), Georgia, serif;
+  --font-quicksand: var(--font-quicksand-var), system-ui, sans-serif;
+  --font-baloo2: var(--font-baloo2-var), system-ui, sans-serif;
+  --font-national-park: "National Park", system-ui, sans-serif;
+  --font-cormorant: var(--font-cormorant-var), system-ui, sans-serif;
+  --font-inter: var(--font-inter-var), system-ui, sans-serif;
+  --font-allura: var(--font-allura-var), system-ui, sans-serif;
+
+  /* ── Animações ── */
+  --animate-fade-in: fadeIn 0.7s ease-out forwards;
+  --animate-slide-up: slideUp 0.7s ease-out forwards;
+  --animate-slide-in-left: slideInLeft 0.7s ease-out forwards;
+  --animate-slide-in-right: slideInRight 0.7s ease-out forwards;
+  --animate-float: float 4s ease-in-out infinite;
+  /* ── Animação de painel cardiáco ── */
+  --animate-ecg: ecgMove 50s linear infinite;
+  /* ── Slide para página sobre ── */
+  --animate-progress: progress 6s linear forwards;
+
+  /* ── Barra de progresso para slide da página sobre ── */
+  @keyframes progress {
+    from {
+      width: 0%;
+    }
+
+    to {
+      width: 100%;
+    }
+  }
+
+  @keyframes kenburns {
+    from {
+      transform: scale(1.02) translate3d(0, 0, 0);
+    }
+
+    to {
+      transform: scale(1.08) translate3d(-1%, -1%, 0);
+    }
+  }
+
+  /* Define os frames exatos do pulso cardíaco */
+  @keyframes ecgMove {
+    from {
+      transform: translateX(0);
+    }
+
+    to {
+      transform: translateX(-50%);
+    }
+  }
+
+  /* ── Animações de sections ── */
+
+  @keyframes fadeIn {
+    from {
+      opacity: 0;
+    }
+    to {
+      opacity: 1;
+    }
+  }
+  @keyframes slideUp {
+    from {
+      opacity: 0;
+      transform: translateY(32px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+  @keyframes slideInLeft {
+    from {
+      opacity: 0;
+      transform: translateX(-32px);
+    }
+    to {
+      opacity: 1;
+      transform: translateX(0);
+    }
+  }
+  @keyframes slideInRight {
+    from {
+      opacity: 0;
+      transform: translateX(32px);
+    }
+    to {
+      opacity: 1;
+      transform: translateX(0);
+    }
+  }
+  @keyframes float {
+    0%,
+    100% {
+      transform: translateY(0px);
+    }
+    50% {
+      transform: translateY(-12px);
+    }
+  }
+  --animate-scroll-line: scrollLine 1.8s ease-in-out infinite;
+  @keyframes scrollLine {
+    0% {
+      transform: translateY(0);
+      opacity: 1;
+    }
+    80% {
+      transform: translateY(28px);
+      opacity: 0;
+    }
+    100% {
+      transform: translateY(0);
+      opacity: 0;
+    }
+  }
+  --animate-chevron-1: chevronPulse 2s ease-in-out infinite;
+  --animate-chevron-2: chevronPulse 2s ease-in-out 0.25s infinite;
+  --animate-chevron-3: chevronPulse 2s ease-in-out 0.5s infinite;
+  @keyframes chevronPulse {
+    0%,
+    100% {
+      opacity: 0.15;
+      transform: translateY(0);
+    }
+    50% {
+      opacity: 1;
+      transform: translateY(4px);
+    }
+  }
+}
+
+/* ── Utilitário de background pattern ── */
+@utility bg-hero-pattern {
+  background-image: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%239C92AC' fill-opacity='0.04'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+}
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+    overflow-x: hidden;
+  }
+
+  body {
+    background: var(--color-brand-bg);
+    color: var(--color-brand-text);
+    overflow-x: hidden;
+    -webkit-font-smoothing: antialiased;
+    text-rendering: optimizeLegibility;
+  }
+
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    @apply tracking-tight;
+    color: var(--color-brand-dark);
+  }
+}
+
+@layer components {
+  .btn-primary {
+    @apply inline-flex items-center gap-2 rounded-full px-8 py-4 font-medium text-white transition-all duration-300;
+
+    background: var(--color-brand-dark);
+  }
+
+  .btn-primary:hover {
+    background: var(--color-brand-primary);
+
+    transform: translateY(-2px);
+
+    box-shadow: 0 12px 30px rgba(46, 44, 41, 0.15);
+  }
+
+  .btn-secondary {
+    @apply inline-flex items-center gap-2 rounded-full border px-8 py-4 font-medium transition-all duration-300;
+
+    border-color: var(--color-brand-dark);
+
+    color: var(--color-brand-dark);
+  }
+
+  .btn-secondary:hover {
+    background: var(--color-brand-dark);
+
+    color: white;
+
+    transform: translateY(-2px);
+  }
+
+  .btn-whatsapp {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.75rem; /* gap-3 */
+    background-color: #111111;
+    color: #ffffff;
+    font-weight: 500;
+    letter-spacing: 0.05em; /* Aumentado para dar o tom Luxury de marcas de grife */
+    text-transform: uppercase; /* Caixa alta impõe mais presença e personalidade */
+
+    /* Mantido sem borda arredondada fixa para aceitar o que vier da prop 'className' */
+    transition:
+      transform 0.3s ease,
+      box-shadow 0.3s ease,
+      background-color 0.3s ease;
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.4); /* Sombra mais escura para o Dark Mode */
+  }
+
+  .btn-whatsapp:hover {
+    background-color: #ffffff; /* Inverte a cor no hover: fundo branco, texto preto */
+    color: #000000;
+    transform: translateY(-2px);
+    box-shadow:
+      0 16px 40px rgba(255, 255, 255, 0.05),
+      0 16px 40px rgba(0, 0, 0, 0.6);
+  }
+
+  .section-title {
+    @apply font-display text-3xl leading-tight font-semibold sm:text-4xl md:text-5xl;
+
+    color: var(--color-brand-dark);
+  }
+
+  .section-subtitle {
+    @apply mt-4 max-w-2xl text-base sm:text-lg;
+
+    color: var(--color-brand-muted);
+  }
+
+  .card-hover {
+    @apply transition-all duration-300;
+  }
+
+  .card-hover:hover {
+    transform: translateY(-6px);
+
+    box-shadow: 0 20px 40px rgba(46, 44, 41, 0.08);
+  }
+
+  .premium-card {
+    background: rgba(255, 255, 255, 0.7);
+
+    border: 1px solid rgba(92, 84, 84, 0.08);
+
+    backdrop-filter: blur(12px);
+
+    border-radius: 24px;
+  }
+
+  .navbar-glass {
+    background: rgba(245, 243, 239, 0.82);
+
+    backdrop-filter: blur(16px);
+
+    border-bottom: 1px solid rgba(92, 84, 84, 0.08);
+  }
+}
+
+.hero-overlay {
+  position: absolute;
+  inset: 0;
+
+  background: linear-gradient(
+    rgba(245, 243, 239, 0.45),
+    rgba(245, 243, 239, 0.78)
+  );
+}
+
+@layer utilities {
+  .text-balance {
+    text-wrap: balance;
+  }
+
+  .animate-on-scroll {
+    opacity: 0;
+    transform: translateY(28px);
+    transition:
+      opacity 0.7s ease-out,
+      transform 0.7s ease-out;
+  }
+
+  .animate-on-scroll.is-visible {
+    opacity: 1;
+    transform: translateY(0);
+  }
+
+  .animate-on-scroll-left {
+    opacity: 0;
+    transform: translateX(-28px);
+    transition:
+      opacity 0.7s ease-out,
+      transform 0.7s ease-out;
+  }
+
+  .animate-on-scroll-left.is-visible {
+    opacity: 1;
+    transform: translateX(0);
+  }
+
+  .animate-on-scroll-right {
+    opacity: 0;
+    transform: translateX(28px);
+    transition:
+      opacity 0.7s ease-out,
+      transform 0.7s ease-out;
+  }
+
+  .animate-on-scroll-right.is-visible {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+/* ── Leaflet: fundo neutro antes dos tiles carregarem ── */
+.leaflet-container {
+  background: #f5f3ef;
+}
+
+/* ── Marcador customizado da GreenSouk ── */
+.gs-pin {
+  position: relative;
+  width: 40px;
+  height: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.gs-pin__core {
+  position: relative;
+  z-index: 2;
+  width: 13px;
+  height: 13px;
+  background: #5c5454;
+  border-radius: 50%;
+  border: 2.5px solid rgba(255, 255, 255, 0.95);
+
+  box-shadow:
+    0 0 0 3px rgba(92, 84, 84, 0.18),
+    0 0 20px rgba(92, 84, 84, 0.25);
+}
+
+.gs-pin__ring {
+  position: absolute;
+  inset: 0;
+  border-radius: 50%;
+
+  border: 1.5px solid rgba(92, 84, 84, 0.35);
+
+  animation: gs-pin-pulse 2.6s ease-out infinite;
+}
+
+.gs-pin__ring--delay {
+  animation-delay: 1.3s;
+}
+
+@keyframes gs-pin-pulse {
+  0% {
+    transform: scale(0.2);
+    opacity: 1;
+  }
+  100% {
+    transform: scale(1.6);
+    opacity: 0;
+  }
+}
+
+.ecg-line {
+  position: absolute;
+  inset: 0;
+  opacity: 0.8;
+  color: var(--ecg-line);
+  filter: drop-shadow(0 0 4px var(--ecg-glow))
+    drop-shadow(0 0 8px var(--ecg-glow));
+}
