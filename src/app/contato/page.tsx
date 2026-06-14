@@ -69,14 +69,14 @@ export default function ContactPage() {
                 </p>
               </div>
 
-              <div className="flex justify-center gap-5 lg:justify-end">
+              <div className="flex justify-center gap-2 lg:justify-end">
                 {/* ícones */}
-                <div className="mt-10 flex flex-wrap justify-center gap-4">
+                <div className="mt-10 flex justify-around gap-2">
                   <a
                     href="https://instagram.com"
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="group flex h-14 w-14 items-center justify-center rounded-full border border-white/10 bg-white/[0.03] transition-all duration-300 hover:border-brand-accent hover:bg-brand-accent/10"
+                    className="group flex h-14 w-14 items-center justify-around rounded-full border border-white/10 bg-white/[0.03] transition-all duration-300 hover:border-brand-accent hover:bg-brand-accent/10"
                   >
                     <BsInstagram
                       size={22}
