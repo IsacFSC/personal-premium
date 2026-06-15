@@ -99,8 +99,8 @@ export const metadata: Metadata = {
     images: [
       {
         url: "brand/premium.jpg",
-        width: 1200,
-        height: 630,
+        width: 512,
+        height: 512,
         alt: "Premium Personal",
       },
     ],

@@ -15,22 +15,66 @@ export const metadata: Metadata = {
 
 export default function ContactPage() {
   return (
-    <div className="bg-brand-dark pt-20 text-white">
+    <div className="bg-brand-dark pt-8 lg:pt-20 text-white">
       {/* HERO */}
+      <section className="relative overflow-hidden py-20">
+        {/* Waves Background */}
+        <div className="absolute inset-0 z-10 overflow-hidden">
+          <svg
+            className="absolute inset-0 h-full w-full"
+            viewBox="0 0 1440 800"
+            preserveAspectRatio="none"
+          >
+            <path
+              d="M0 400C240 300 480 500 720 400C960 300 1200 500 1440 400"
+              stroke="rgba(245,158,11,0.15)"
+              strokeWidth="2"
+              fill="none"
+              className="animate-[wave_12s_ease-in-out_infinite]"
+            />
 
-      <section className="relative overflow-hidden py-16">
+            <path
+              d="M0 500C240 400 480 600 720 500C960 400 1200 600 1440 500"
+              stroke="rgba(255,255,255,0.08)"
+              strokeWidth="1"
+              fill="none"
+              className="animate-[wave_16s_ease-in-out_infinite_reverse]"
+            />
+
+            <path
+              d="M0 600C240 500 480 700 720 600C960 500 1200 700 1440 600"
+              stroke="rgba(255,255,255,0.05)"
+              strokeWidth="1"
+              fill="none"
+              className="animate-[wave_20s_ease-in-out_infinite]"
+            />
+          </svg>
+        </div>
+
         <div className="mx-auto max-w-4xl px-4 text-center">
           <AnimatedSection>
-            <span className="mb-6 inline-flex items-center gap-2 border border-white/20 px-4 py-2 text-sm">
-              📍 Nossos Studios
+            <span className="mb-2 block w-fit mx-auto border border-white/10 bg-white/5 px-2 py-1.5 text-[9px] sm:text-[10px] font-medium tracking-[0.25em] uppercase text-zinc-300">
+              Atendimento Exclusivo
+              <span className="ml-1 items-center text-brand-secondary h-2.5 w-2.5 rounded-full animate-pulse">•</span>
+              <span className="ml-1">Campo Grande</span>
             </span>
 
-            <h1 className="font-inter text-4xl font-bold sm:text-6xl">
-              Atendimento Exclusivo
+            <h1 className="text-2xl font-bold lg:inline-flex leading-tight text-transparent bg-clip-text bg-linear-to-r from-zinc-200 via-amber-200 to-zinc-400 sm:text-3xl lg:text-4xl">
+              Entre em Contato
+              <span className="hidden lg:inline font-extrabold pl-2">|</span>
             </h1>
 
-            <p className="mx-auto mt-4 max-w-xl text-lg text-gray-300">
-              Estamos em dois endereços para atender você com exclusividade.
+            <span className="font-mono lg:inline-flex px-2 tracking-[0.2em] uppercase text-xl sm:text-4xl text-zinc-300">
+              Premium
+            </span>
+
+            <span className="font-allura text-3xl sm:text-6xl text-zinc-300">
+              Experience
+            </span>
+
+            <p className="mx-auto mt-6 max-w-2xl text-sm sm:text-base leading-relaxed text-zinc-400">
+              Escolha a unidade mais conveniente para você e descubra uma experiência
+              de treinamento personalizada, discreta e focada em resultados.
             </p>
           </AnimatedSection>
         </div>

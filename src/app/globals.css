@@ -44,6 +44,15 @@
   /* ── Slide para página sobre ── */
   --animate-progress: progress 6s linear forwards;
 
+  @keyframes wave {
+    0%, 100% {
+      transform: translateX(0px);
+    }
+
+    50% {
+      transform: translateX(-40px);
+    }
+  }
   /* ── Barra de progresso para slide da página sobre ── */
   @keyframes progress {
     from {
